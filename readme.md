@@ -4,16 +4,21 @@
 
 ---
 
-## 🧠 Project Overview
+## I. Project Overview
 
 ChatDB is an interactive web-based application that enables users to interact with relational (MySQL) and non-relational (MongoDB) databases using natural language queries.
 Built with Streamlit and powered by OpenAI's GPT API, ChatDB interprets user input and translates it into executable SQL or MongoDB commands.
 
 This project fulfills the requirements set by the [DSCI 551 Project Guideline (Spring 2025)](./551-sp25-project-guideline.pdf).
 
+Team Members:
+- Shih-Hui Huang
+- Yu-Chen Lu
+- Yu-Ching Huang
+
 ---
 
-## 🚀 Features
+### Features
 
 - **Natural Language Interface**: Ask questions or issue commands in plain English.
 - **MySQL Support**: Automatically generate and run SQL queries using PyMySQL.
@@ -23,7 +28,7 @@ This project fulfills the requirements set by the [DSCI 551 Project Guideline (S
 
 ---
 
-## 💻 UI Demo
+### UI Demo
 
 The app is built with [Streamlit](https://streamlit.io) and provides an intuitive, form-based interface for:
 
@@ -34,7 +39,7 @@ The app is built with [Streamlit](https://streamlit.io) and provides an intuitiv
 
 ---
 
-## 🗃️ Datasets Used
+### Datasets Used
 
 1. **Pixar Movies**
    - Tables: `pixar_films`, `box_office`, `genres`, `pixar_people`, `public_response`, `academy`
@@ -44,3 +49,68 @@ The app is built with [Streamlit](https://streamlit.io) and provides an intuitiv
    - Tables: `stolen_vehicles`, `make_details`, `locations`
 
 Each dataset includes at least two tables to support join operations.
+
+---
+
+## II. Project Design
+
+### Architecture Design
+
+The project consists of three main components:
+
+1. **User Interface (Streamlit)**  
+   - Allows selection of database and dataset  
+   - Accepts natural language queries  
+   - Displays the generated query and results
+
+2. **Query Conversion Layer (OpenAI API)**  
+   - Uses GPT to convert natural language input into SQL or MongoDB commands  
+   - Prompts are dynamically constructed based on selected dataset schema
+
+3. **Query Execution Layer**  
+   - Executes SQL using PyMySQL and MongoDB queries using PyMongo  
+   - Connects to EC2-hosted databases
+
+---
+
+## III. Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/chatdb.git
+cd chatdb
+```
+
+---
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 3. Configure OpenAI API Key
+
+Create a .streamlit folder if it doesn't exist:
+```bash
+mkdir .streamlit
+```
+
+Create a file named secrets.toml inside it:
+```bash
+# .streamlit/secrets.toml
+OPENAI_API_KEY = "your-openai-api-key-here"
+```
+
+Make sure .streamlit/ is in .gitignore to avoid uploading secrets to GitHub.
+
+---
+
+### 4. Run the app
+
+```bash
+streamlit run app.py
+```
