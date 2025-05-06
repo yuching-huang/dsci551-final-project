@@ -16,8 +16,6 @@ Team Members:
 - Yu-Chen Lu
 - Yu-Ching Huang
 
----
-
 ### Features
 
 - **Natural Language Interface**: Ask questions or issue commands in plain English.
@@ -26,9 +24,7 @@ Team Members:
 - **Dynamic Schema Awareness**: Tailored prompts for three datasets (`pixar_movies`, `beers`, `stolen_vehicles_db`).
 - **Real-Time Query Execution**: Displays live query results from an EC2-hosted database instance.
 
----
-
-### UI Demo
+### Web-based Interface
 
 The app is built with [Streamlit](https://streamlit.io) and provides an intuitive, form-based interface for:
 
@@ -36,8 +32,6 @@ The app is built with [Streamlit](https://streamlit.io) and provides an intuitiv
 - Choosing a dataset
 - Inputting natural language queries
 - Viewing generated code and execution results
-
----
 
 ### Datasets Used
 
@@ -52,9 +46,7 @@ Each dataset includes at least two tables to support join operations.
 
 ---
 
-## II. Project Design
-
-### Architecture Design
+## II. Project Architecture Design
 
 The project consists of three main components:
 
@@ -73,26 +65,22 @@ The project consists of three main components:
 
 ---
 
-## III. Setup Instructions
+## III. Project Implementation
 
-### 1. Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/chatdb.git
 cd chatdb
 ```
 
----
-
-### 2. Install Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-### 3. Configure OpenAI API Key
+### Configure OpenAI API Key
 
 Create a .streamlit folder if it doesn't exist:
 ```bash
@@ -107,9 +95,7 @@ OPENAI_API_KEY = "your-openai-api-key-here"
 
 Make sure .streamlit/ is in .gitignore to avoid uploading secrets to GitHub.
 
----
-
-### 4. Run the app
+### Run the app
 
 ```bash
 streamlit run app.py
